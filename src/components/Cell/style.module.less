@@ -1,0 +1,51 @@
+.cellWrap {
+  position: relative;
+  width: 100%;
+  height: 5.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:after {
+    position: absolute;
+    left: 3.6rem;
+    bottom: 0;
+    content: '';
+    width: 30.7rem;
+    height: 0.1rem;
+    background-color: #E5E5E5CC;
+    transform: scale(1, 0.8);
+  }
+
+  .cellLeft {
+    display: inline-flex;
+    align-items: center;
+
+    .iconWrap {
+      margin-left: 0.5rem;
+      width: 1.9rem;
+      height: 1.9rem;
+
+      .cellIcon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .cellLabel {
+      margin-left: 1.7rem;
+      font-size: 1.5rem;
+      color: #333333;
+      line-height: 2.2rem;
+    }
+  }
+
+  .cellRight {
+    padding: 0.2rem 0.5rem;
+
+    .rightIcon {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

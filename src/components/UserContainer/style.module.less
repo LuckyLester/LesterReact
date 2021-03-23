@@ -1,0 +1,75 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F1F3F9;
+
+  .userWrap {
+    width: 100%;
+    height: 10rem;
+    padding: 0 2rem 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("../../assets/images/user_bg.png");
+    background-size: 100%;
+
+    .infoWrap {
+      display: inline-flex;
+      align-items: center;
+
+      .avatar {
+        width: 4.4rem;
+        height: 4.4rem;
+        border-radius: 50%;
+      }
+
+      .userInfo {
+        margin-left: 1.2rem;
+
+        .userName {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #F3D79F;
+          line-height: 2.2rem;
+        }
+
+        .memberDesc {
+          margin-top: 0.2rem;
+          font-size: 1.2rem;
+          color: #FFFFFF80;
+          line-height: 1.8rem;
+        }
+      }
+    }
+
+    .memberBtn {
+      width: 8.8rem;
+      height: 2.8rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #725438;
+      line-height: 2.8rem;
+      text-align: center;
+      background: linear-gradient(182deg, #FFDCA5 0%, #E9C181 100%);
+      border-radius: 2.2rem;
+    }
+  }
+
+  .contentWrap {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    background-color: white;
+
+    .content {
+      position: relative;
+      top: -0.9rem;
+      padding: 2.6rem 1.6rem 0;
+      background-color: white;
+      border-radius: 0.8rem 0.8rem 0 0;
+      z-index: 10;
+    }
+  }
+}
