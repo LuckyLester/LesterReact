@@ -14,7 +14,6 @@ import { Product } from "src/utils/interface";
 import { queryProductList, changeMemberStatus } from "src/api";
 import { createOrderPayByWX, getScreenHeight } from "src/utils/base";
 import { getQueryParam } from "lester-tools";
-import BI, { BIType } from "src/utils/BI";
 import style from './style.module.less';
 
 const Index: React.FC<RouteComponentProps> = ( { history } ) => {
@@ -111,14 +110,6 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
     }
   };
 
-  const reportBtn = (btnName: string) => {
-    BI.push({
-      type: BIType.btnClick,
-      pageName: '会员联合购主页',
-      btnName
-    });
-  };
-
   useEffect(() => {
     if (canCheckOut) {
       setVisible(true);
@@ -128,11 +119,6 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
   useEffect(() => {
     getActivityDetail();
     getProductList();
-    BI.push({
-      type: BIType.pageVisit,
-      pageName: '会员联合购主页',
-      fromPage: getQueryParam('channel') || 'common'
-    });
   }, []);
 
   return (
@@ -150,7 +136,6 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
                 alt=""
                 onClick={() => {
                   history.push('/userCenter');
-                  reportBtn('头像');
                 }}
               />
               <div className={style.userInfo}>
@@ -160,17 +145,14 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
             </div>
             <div className={style.ruleBtn} onClick={() => {
               history.push('/rule');
-              reportBtn('活动规则');
             }}>活动规则</div>
             <div className={classNames(style.ruleBtn, style.userCenter)} onClick={() => {
               history.push('/userCenter');
-              reportBtn('个人中心');
             }}>个人中心</div>
             {
               canCheckOut && (
                 <div className={classNames(style.ruleBtn, style.switchMember)} onClick={() => {
                   history.push("/chooseMember?fromPage=会员联合购主页");
-                  reportBtn('切换会员');
                 }}>切换会员</div>
               )
             }
@@ -210,7 +192,6 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
                     ref={btnRef}
                     onClick={() => {
                       openMember();
-                      reportBtn(`立即开通-会员${+item.type === 1 ? '年' : '季'}包`);
                     }}
                   >立即开通</button>
                 </li>
@@ -335,7 +316,6 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
           </div>
           <div className={style.payRight} onClick={() => {
             openMember();
-            reportBtn('确认支付');
           }}>确认支付</div>
         </div>
       }
@@ -347,12 +327,10 @@ const Index: React.FC<RouteComponentProps> = ( { history } ) => {
         <div className={style.btnWrap}>
           <span className={style.cancelBtn} onClick={() => {
             setVisible(false);
-            reportBtn('返回');
           }}>返回</span>
           <span className={style.okBtn} onClick={() => {
             setVisible(false);
             history.push("/chooseMember");
-            reportBtn('去使用');
           }}>去使用</span>
         </div>
       </Modal>

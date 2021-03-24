@@ -28,7 +28,7 @@
     "weixin-js-sdk": "^1.6.0"
   },
   "scripts": {
-    "start": "cross-env HOST=10.120.24.115 react-app-rewired start",
+    "start": "cross-env HOST=127.0.0.1 react-app-rewired start",
     "build": "react-app-rewired build",
     "analyze": "cross-env analyze=1 react-app-rewired build",
     "test": "react-app-rewired test",

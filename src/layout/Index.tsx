@@ -50,7 +50,7 @@ const Layout: React.FC = () => {
   };
 
   useEffect(() => {
-    getUserInfo();
+    // getUserInfo();
     /*const userInfo: any = window.localStorage.getItem('userInfo');
     if (userInfo) {
       setUserInfo(JSON.parse(userInfo));
